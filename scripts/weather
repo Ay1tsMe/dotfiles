@@ -1,3 +1,0 @@
-#!/bin/sh
-
-python3 ~/Desktop/myProjects/weatherRadar/weatherRadar.py perth
