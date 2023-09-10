@@ -4,6 +4,7 @@ cups
 discord
 dracula-gtk-theme
 dracula-icons-git
+emacs
 feh
 mpv
 gimp
