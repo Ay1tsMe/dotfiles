@@ -51,3 +51,5 @@
 
 (package! tldr)
 (package! dracula-theme)
+(package! centaur-tabs)
+(package! highlight-indent-guides)
