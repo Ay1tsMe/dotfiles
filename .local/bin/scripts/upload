@@ -1,0 +1,11 @@
+#!/bin/sh
+
+file="$1"
+
+response=$(curl -F"file=@$file" "picoshare api key goes here")
+
+id=$(echo "$response" | jq -r '.id')
+
+url="picoshare url goes here-$id"
+
+echo "$url"
