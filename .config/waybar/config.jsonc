@@ -89,6 +89,7 @@
         "format" : "{}",
         "interval" : 30,
         "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
+        "on-click": "kitty weather",
         "return-type" : "json"
     },
 
