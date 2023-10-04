@@ -126,3 +126,11 @@
 (setq highlight-indent-guides-responsive 'top)
 
 (add-to-list 'default-frame-alist '(alpha-background . 0.8))
+
+(setq display-line-numbers-type 'relative)
+
+(use-package conda
+  :ensure t
+  :init
+  (setq conda-anaconda-home (expand-file-name "~/miniforge3"))
+  (setq conda-env-home-directory (expand-file-name "~/miniforge3/envs")))
