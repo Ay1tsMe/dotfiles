@@ -119,7 +119,8 @@ alias tventertainment="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/
 alias tvcartoons="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/categories/animation.m3u"
 alias tvsport="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/categories/sports.m3u"
 alias tvcooking="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/categories/cooking.m3u"
-
+alias tvuk="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/countries/uk.m3u"
+alias tvamerica="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/countries/us.m3u"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
@@ -145,5 +146,3 @@ if [ -f "/home/adamw/miniforge3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
-# alsamixer restore
-alsactl --file ~/.config/asound.state restore
