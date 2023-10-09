@@ -8,6 +8,8 @@ fi
 # If you come from bash you might have to change your $PATH.
 # Bash scripts folders
 export PATH=~/.local/bin/scripts:$PATH
+export PATH=~/.local/bin:$PATH
+export PATH=~/.config/emacs/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -110,9 +112,38 @@ export BROWSER="brave"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias mountnas="sudo mount -t nfs 10.1.1.171:/nfs/Public /mnt"
+alias tvaustralia="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/countries/au.m3u"
+alias tvmovies="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/categories/movies.m3u"
+alias tventertainment="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/categories/entertainment.m3u"
+alias tvcartoons="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/categories/animation.m3u"
+alias tvsport="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/categories/sports.m3u"
+alias tvcooking="mpv --script-opts=iptv=1 https://iptv-org.github.io/iptv/categories/cooking.m3u"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 neofetch
 export PATH=$PATH:/home/adamw/.spicetify
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/adamw/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/adamw/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/adamw/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/adamw/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/adamw/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/adamw/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+# alsamixer restore
+alsactl --file ~/.config/asound.state restore
