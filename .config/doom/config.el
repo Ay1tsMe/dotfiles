@@ -111,6 +111,12 @@
       :desc "dap breakpoint hit count"   "h" #'dap-breakpoint-hit-condition
       :desc "dap breakpoint log message" "l" #'dap-breakpoint-log-message)
 
+;; Emacs shell config
+(use-package exec-path-from-shell
+  :init
+  (when (display-graphic-p)
+    (exec-path-from-shell-initialize)))
+
 ;; Indentation settings
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -135,6 +141,12 @@
 (add-hook 'c++-mode-hook 'lsp)
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'html-mode-hook 'lsp)
+(require 'lsp-mode)
+(add-hook 'go-mode'hook #'lsp-deferred)
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
 ;; Transparent Background
 (add-to-list 'default-frame-alist '(alpha-background . 0.8))
