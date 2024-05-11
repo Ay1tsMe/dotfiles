@@ -88,3 +88,6 @@ _open_files_for_editing() {
 
 eval "$(starship init bash)"
 neofetch
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"

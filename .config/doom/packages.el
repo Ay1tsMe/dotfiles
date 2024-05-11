@@ -54,4 +54,3 @@
 (package! centaur-tabs)
 (package! highlight-indent-guides)
 (package! conda)
-(package! exec-path-from-shell)

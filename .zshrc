@@ -86,8 +86,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export TERMINAL="kitty"
-export EDITOR="vim"
+export EDITOR="emacsclient -c"
 export BROWSER="brave"
+export GUIPLAYER="mpv"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -146,3 +147,12 @@ if [ -f "/home/adamw/miniforge3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+# NNN
+export NNN_PLUG='o:fzopen;i:imgview;p:preview-tui;d:dragndrop;c:cdpath;b:boom;m:nmount'
+alias nnn="nnn -e -a -C -P p -A"
+export NNN_FIFO=/tmp/nnn.fifo
+source ~/.local/bin/scripts/quitcd.zsh
+## Bookmarks
+export NNN_BMS="h:$HOME;c:$HOME/.config;s:$HOME/.local/bin/scripts;m:/run/media;r:/"
+
+eval "$(atuin init zsh)"

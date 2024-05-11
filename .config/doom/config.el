@@ -74,8 +74,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-;;
-;; Python Debugger
 (require 'dap-python)
 (after! dap-mode
   (setq dap-python-debugger 'debugpy))
@@ -111,18 +109,10 @@
       :desc "dap breakpoint hit count"   "h" #'dap-breakpoint-hit-condition
       :desc "dap breakpoint log message" "l" #'dap-breakpoint-log-message)
 
-;; Emacs shell config
-(use-package exec-path-from-shell
-  :init
-  (when (display-graphic-p)
-    (exec-path-from-shell-initialize)))
-
-;; Indentation settings
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 
-;; Buffer tabs
 (require 'centaur-tabs)
 (centaur-tabs-mode t)
 (global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
@@ -130,31 +120,15 @@
 (setq centaur-tabs-style "bar")
 (setq centaur-tabs-set-icons t)
 
-;; Indentation guides
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'character)
 (setq highlight-indent-guides-character ?\|)
 (setq highlight-indent-guides-responsive 'top)
 
-;; Enable lsp by default for the following:
-(add-hook 'python-mode-hook 'lsp)
-(add-hook 'c++-mode-hook 'lsp)
-(add-hook 'c-mode-hook 'lsp)
-(add-hook 'html-mode-hook 'lsp)
-(require 'lsp-mode)
-(add-hook 'go-mode'hook #'lsp-deferred)
-(defun lsp-go-install-save-hooks ()
-  (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  (add-hook 'before-save-hook #'lsp-organize-imports t t))
-(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
-
-;; Transparent Background
 (add-to-list 'default-frame-alist '(alpha-background . 0.8))
 
-;; Vim line numbers
 (setq display-line-numbers-type 'relative)
 
-;; Conda environment
 (use-package conda
   :ensure t
   :init

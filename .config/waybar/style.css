@@ -1,127 +1,161 @@
+/* The css styles are supposed to represent how the modules look 
+* starting from left to right as closely as possible*/
+
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
-    font-size: 16px;
-    min-height: 0;
+  border: none;
+  font-family: "JetBrainsMono NF";
+  font-weight: bold;
+  font-size: 16px;
+  min-height: 0;
 }
 
+/* Overarching styles */
+
 window#waybar {
-    background: rgba(21, 18, 27, 0);
-    color: #cdd6f4;
+  background: rgba(21, 18, 27, 0);
+  color: #cdd6f4;
 }
 
 tooltip {
-    background: #1e1e2e;
-    opacity: 0.8;
-    border-radius: 10px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+  opacity: 0.8;
+  background-color: #1e1e2e;
+  color: #FFFFFF;
+  border-radius: 5px;
 }
 
-tooltip label{
-    color: #cdd6f4;
+/* Left modules */
+
+#custom-logo,
+#custom-weather,
+#window {
+  opacity: 0.8;
+  background: #1e1e2e;
+  border-radius: 8px;
+  padding: 0px 10px;
+  margin: 3px 0px;
+}
+
+/* Overwritting the previous padding style on 'custom-logo' 
+* to give proper padding to nerd font icon */
+#custom-logo {
+  color: #cba6f7;
+  padding: 0px 15px 0px 10px;
+}
+
+/* If no windows are present on the screen,
+* this module will be transparent */
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+/* Center modules */
+#workspaces {
+  opacity: 0.8;
+  background: #1e1e2e;
+  border-radius: 8px;
+  padding: 0px 5px;
+  margin: 4px 10px;
 }
 
 #workspaces button {
-    padding: 5px;
-    color: #313244;
-    margin-right: 5px;
-}
+  padding: 0px 3px;
+  margin: 6px 2px;
+  border-radius: 40px;
+  background: #7d6a95;
+  opacity: 30;
+  transition: all 0.5s cubic-bezier(0.11, 1.09, 0.6, 0.96);
 
+
+}
 #workspaces button.active {
-    color: #a6adc8;
-}
-
-#workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
-    border-radius: 10px;
-}
-
-#workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
-    border-radius: 10px;
+  margin: 6px 2px;
+  padding: 0px 35px;
+  background-color: #cba6f7;
 }
 
 #workspaces button:hover {
-    background: #11111b;
-    color: #cdd6f4;
-    border-radius: 10px;
+  background-color: #89bfda;
 }
 
-#custom-launch_wofi,
-#custom-lock_screen,
-#custom-power_btn,
-#custom-weather,
-#window,
+/* Right modules */
+
+/* These modules are children of group/system */
+#battery,
 #cpu,
 #disk,
-#custom-updates,
 #memory,
-#clock,
-#battery,
-#pulseaudio,
-#network,
-#tray,
 #temperature,
-#workspaces,
+#battery,
+#backlight,
+
+/* group/system */
+#system {
+  opacity: 0.8;
+  background: #1e1e2e;
+  border-radius: 8px;
+  margin: 3px 0px;
+  padding: 0px 8px;
+}
+
+#pulseaudio,
+#pulseaudio#microphone,
+#tray,
+#audio {
+  opacity: 0.8;
+  background: #1e1e2e;
+  border-radius: 8px;
+  margin: 3px 0px;
+  padding: 0px 8px;
+}
+
+#disk {
+   color: #cba6f7;
+}
+
+#memory {
+   color: #89b4fa;
+}
+
+#cpu {
+   color: #a6e4a1;
+}
+
+#temperature {
+   color: #cba6f7;
+}
+
 #backlight {
-    background: #1e1e2e;
-    opacity: 0.8;
-    padding: 0px 10px;
-    margin: 3px 0px;
-    margin-top: 10px;
-    border: 0px;
-}
-
-#tray, #custom-lock_screen, #temperature, #backlight, #custom-launch_wofi, #cpu {
-    border-radius: 10px 0px 0px 10px;
-}
-
-#custom-weather, #custom-power_btn, #workspaces, #pulseaudio.microphone, #battery, #disk {
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px;
-}
-
-#temperature.critical {
-    color: #e92d4d;
-}
-
-
-#workspaces {
-    padding-right: 0px;
-    padding-left: 5px;
-}
-
-#window {
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-#custom-launch_wofi {
-    color: #cba6f7;
-    margin-left: 10px;
-    border-right: 0px;
-}
-
-#pulseaudio {
-    color: #89b4fa;
-    border-left: 0px;
-    border-right: 0px;
-}
-
-#pulseaudio.microphone {
-    color: #cba6f7;
-    border-left: 0px;
-    border-right: 0px;
+   color: #89b4fa;
 }
 
 #battery {
-    color: #a6e3a1;
-    border-left: 0px;
+   color: #a6e4a1;
 }
+
+#pulseaudio {
+   color: #89b4fa;
+}
+
+#pulseaudio.microphone {
+   color: #cba6f7;
+}
+
+
+#clock {
+  opacity: 0.8;
+  background: #1e1e2e;
+  border-radius: 8px;
+  padding: 0px 10px;
+  margin: 3px 0px;
+}
+
+#custom-lock_screen,
+#custom-power_btn,
+#power {
+  opacity: 0.8;
+  background: #1e1e2e;
+  border-radius: 8px;
+  padding: 0px 7px;
+  margin: 3px 0px;
+}
+

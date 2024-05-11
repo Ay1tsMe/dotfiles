@@ -1,11 +1,25 @@
 auto-reload no
 
 color background default default
-color listnormal color255 default
-color listfocus color238 color255 standout
-color listnormal_unread color47 default
-color listfocus_unread color238 color47 standout
-color info color141 color236
+color listnormal default default
+color listfocus default default standout
+color listnormal_unread default default
+color listfocus_unread default default standout
+color info default default
+
+# Vim Keybindings
+# Unbind old keys
+unbind-key ENTER
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+
+# Bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
 
 # highlights
 highlight all "---.*---" yellow
