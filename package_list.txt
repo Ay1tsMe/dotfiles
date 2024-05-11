@@ -15,6 +15,7 @@ imv
 kitty
 lf
 vim
+mako
 newsboat
 nmap
 noto-fonts
@@ -40,6 +41,7 @@ ttf-liberation
 ttf-opensans
 ufw
 wofi
+wlogout
 yay
 zathura
 zsh
